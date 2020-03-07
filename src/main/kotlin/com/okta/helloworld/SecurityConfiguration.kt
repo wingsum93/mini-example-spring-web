@@ -19,6 +19,12 @@ class SecurityConfiguration: WebSecurityConfigurerAdapter() {
                 .withUser("john.doe")
                 .password(passwordEncoder().encode("secret"))
                 .roles("USER")
+
+        auth.inMemoryAuthentication()
+                .passwordEncoder(passwordEncoder())
+                .withUser("eric")
+                .password(passwordEncoder().encode("eric"))
+                .roles("USER")
     }
 
     @Bean
